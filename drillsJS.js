@@ -2,11 +2,14 @@ var inputVar = document.getElementById("var");
 var formElem = document.getElementById("user-var");
 
 formElem.onsubmit = function(event) {
+    event.preventDefault();
+
     inputInt = inputVar.value;
+    testInt = parseInt(inputInt);
 
 
-    if ( inputInt === 10) {
-        console.log('execute')
+    if ( testInt === 10) {
+        console.log('execute one')
     }
 
 const promise = new Promise((resolve, reject) => {
@@ -14,8 +17,8 @@ const promise = new Promise((resolve, reject) => {
 
 
     setTimeout(() =>  {
-        if ( inputInt === 10) {
-            console.log('execute')
+        if ( testInt === 10) {
+            console.log('execute two')
             resolve('RESOLVED')
         } else {
             reject('REJECTED')
@@ -28,4 +31,8 @@ promise.then(data => {
 }).catch(err => {
     console.warn(err)
 });
+
+if ( testInt === 10) {
+    console.log('execute three')
+}
 }
